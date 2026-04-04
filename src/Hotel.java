@@ -9,6 +9,9 @@ public class Hotel {
     public Hotel(String nome) {
         this.nome = nome;
         this.quartos = new ArrayList<>();
+        
+        Quarto quarto = new Quarto(101, 1);
+        this.adicionarQuarto(quarto);
     }
 
     public String getNome() {

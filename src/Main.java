@@ -5,15 +5,16 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println();
-		
 		Scanner sc = new Scanner(System.in);
 		
 		// CRIACAO E TESTE DE HOTEL
 		System.out.print("Nome do hotel: ");
 		String nomeHotel = sc.nextLine();
-		Hotel hotelTransilvanica = new Hotel(nomeHotel);
-		System.out.println("Hotel: " + hotelTransilvanica.getNome());
+		Hotel hotelTeste = new Hotel(nomeHotel);
+		System.out.println("Hotel: " + hotelTeste.getNome());
+		Quarto quartoInicial = hotelTeste.getQuartos().get(0);
+		System.out.println("Quarto inicial: ");
+		quartoInicial.init();
 		
 		
 		// CRIACAO DE CARGO E FUNCIONARIO
@@ -33,16 +34,13 @@ public class Main {
 		
 		// TESTE DE FUNCIONARIOS
 		System.out.println("===== Funcionarios =====");
-		System.out.println("Nome: " + BrunoFuncionario.getNome());
-		System.out.println("Cargo: " + BrunoFuncionario.getCargo().getNome());
-		System.out.println("Antigo salario: " + BrunoFuncionario.getSalario());
+		BrunoFuncionario.init();
 		
 		System.out.print("Novo salário: ");
 		double novoSalario = sc.nextDouble();
 		sc.nextLine();
 		
 		BrunoFuncionario.mudarSalario(novoSalario);
-		System.out.println("Novo salario: " + BrunoFuncionario.getSalario());
 		
 		
 		// CRIACAO E TESTE DE HOSPEDES
@@ -58,10 +56,7 @@ public class Main {
 		String documentoHospede = sc.nextLine();
 		
 		Hospede BrunoHospede = new Hospede(nomeHospede, enderecoHospede, documentoHospede);
-		
-		System.out.println("Nome: " + BrunoHospede.getNome());
-		System.out.println("Endereço: " + BrunoHospede.getEndereco());
-		System.out.println("Documento: " + BrunoHospede.getDocumento());
+		BrunoHospede.init();
 		
 		
 		// CRIACAO E TESTE DE VEICULO
@@ -74,9 +69,7 @@ public class Main {
 		String modelo = sc.nextLine();
 		
 		Veiculo carro = new Veiculo(placa, modelo);
-		
-		System.out.println("Placa: " + carro.getPlaca());
-		System.out.println("Modelo: " + carro.getModelo());
+		carro.init();
 		
 		
 		// CRIACAO E TESTE DE RESERVA
@@ -96,10 +89,7 @@ public class Main {
 		reserva.checkin(hospedes);
 		reserva.setVeiculo(carro);
 		
-		System.out.println("Data entrada: " + reserva.getDataEntrada());
-		System.out.println("Data saida: " + reserva.getDataSaida());
-		System.out.println("Qtd hospedes: " + reserva.getHospedes().size());
-		System.out.println("Veiculo da reserva: " + reserva.getVeiculo().getModelo());
+		reserva.init();
 		
 		reserva.checkout();
 		reserva.cancelar();
@@ -108,19 +98,11 @@ public class Main {
 		// CRIACAO E TESTE DE QUARTO
 		System.out.println("\n===== Quarto =====");
 		
-		System.out.print("Número do quarto: ");
-		int numero = sc.nextInt();
+		List<Quarto> quartos = hotelTeste.getQuartos();
 		
-		System.out.print("Andar: ");
-		int andar = sc.nextInt();
+		quartos.get(0).adicionarReserva(reserva);
 		
-		Quarto quarto = new Quarto(numero, andar);
-		
-		quarto.adicionarReserva(reserva);
-		
-		System.out.println("Numero: " + quarto.getNumero());
-		System.out.println("Andar: " + quarto.getAndar());
-		System.out.println("Qtd reservas: " + quarto.getReservas().size());
+		quartos.get(0).init();
 		
 		sc.close();
 	}

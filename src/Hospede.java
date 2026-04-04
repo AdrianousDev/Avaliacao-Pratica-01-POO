@@ -16,4 +16,10 @@ public class Hospede extends Pessoa {
     public String getDocumento() {
         return documento;
     }
+    
+    public void init() {
+    	System.out.println("Nome: " + this.getNome());
+		System.out.println("Endereço: " + this.getEndereco());
+		System.out.println("Documento: " + this.getDocumento());
+    }
 }

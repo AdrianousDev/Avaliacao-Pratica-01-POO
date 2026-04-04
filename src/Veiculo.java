@@ -15,4 +15,9 @@ public class Veiculo {
     public String getModelo() {
         return modelo;
     }
+    
+    public void init() {
+    	System.out.println("Placa: " + this.getPlaca());
+		System.out.println("Modelo: " + this.getModelo());
+    }
 }

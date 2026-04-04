@@ -45,4 +45,11 @@ public class Reserva {
     public Veiculo getVeiculo() {
         return veiculo;
     }
+    
+    public void init() {
+    	System.out.println("Data entrada: " + this.getDataEntrada());
+		System.out.println("Data saida: " + this.getDataSaida());
+		System.out.println("Qtd hospedes: " + this.getHospedes().size());
+		System.out.println("Veiculo da reserva: " + this.getVeiculo().getModelo());
+    }
 }

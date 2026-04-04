@@ -28,4 +28,10 @@ public class Quarto {
     public List<Reserva> getReservas() {
         return reservas;
     }
+    
+    public void init() {
+    	System.out.println("Numero: " + this.getNumero());
+		System.out.println("Andar: " + this.getAndar());
+		System.out.println("Qtd reservas: " + this.getReservas().size());
+    } 
 }

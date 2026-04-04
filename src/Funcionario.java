@@ -11,6 +11,7 @@ public class Funcionario extends Pessoa{
     
     public void mudarSalario(double novoSalario) {
         this.salario = novoSalario;
+        System.out.println("Novo salario: " + this.getSalario());
     }
 
     public double getSalario() {
@@ -19,5 +20,11 @@ public class Funcionario extends Pessoa{
 
     public Cargo getCargo() {
         return cargo;
+    }
+    
+    public void init() {
+    	System.out.println("Nome: " + this.getNome());
+		System.out.println("Cargo: " + this.getCargo().getNome());
+		System.out.println("Antigo salario: " + this.getSalario());
     }
 }
